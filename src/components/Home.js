@@ -1,26 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Home = ({ user }) => {
 
-	// const { user } = props
+	const quotes = [
+		"Note to self: Drink more water.",
+		"Sometimes the best way to start a day is to start it with a cup of coffee.",
+		"Wild baboons are running naked.",
+		"Think I'm gonna add a hobby soon.",
+	];
+
+	const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+		}, 60000);
+
+		return () => clearInterval(interval);
+	}, [quotes.length]);
 
 	return (
-		<div className='container mt-5' style={{ marginBottom: "10%" }}>
-			<div className="row">
-				<div className="col-sm-9">
-					<h5 className="hi">Hi there, I'm</h5>
-					<h1 className="name">{user}</h1>
-					<h3 className="port">Welcome, do enjoy your stay.</h3>
-					<br />
-					<p className="catch">"I don't intend to create something to impress, but to inspire."</p>
-				</div>
-				<div className="col-sm-3">
-					{/* <!-- <div className="work-preview">
-            work preview
-          </div> --> */}
-				</div>
+		<div className='mt-5 home-content'>
+			<h5 className="hi">Hi there, I'm</h5>
+			<h1 className="name">{user}</h1>
+			<h3 className="port">Welcome, do enjoy your stay.</h3>
+
+			<div className="quote-section">
+				<hr className="separator" />
+				<p className="catch">"{quotes[currentQuoteIndex]}"</p>
 			</div>
-			{/* <div style={{ height: "50px" }}></div> */}
+
+			<div className="bfd"></div>
 		</div>
 	)
 }

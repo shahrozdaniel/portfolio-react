@@ -9,6 +9,7 @@ import Work from './components/Work';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import Particles from './components/Particles';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
 	return (
 		<HashRouter>
+			<ScrollToTop />
 			<Particles id="tsparticles" />
 			<div className="">
 				{/* <input type="text" onChange={handleUser} /> */}

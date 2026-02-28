@@ -12,7 +12,7 @@ const Footer = () => {
 					</div>
 					<div className="col-sm-7">
 						<div className="row">
-							<div className="col-sm-3">
+							<div className="col-sm-4">
 								<h6><b>Clients</b></h6>
 								<p className="footer-p" style={{ paddingTop: "28px" }}>
 									Amit Sharma <br />
@@ -23,16 +23,16 @@ const Footer = () => {
 									Faizan Qureshi
 								</p>
 							</div>
-							<div className="col-sm-6">
+							<div className="col-sm-7">
 								<h6><b>About</b></h6>
 								<p className="footer-p" style={{ paddingTop: "28px" }}>Why hello there. I am a 24 year old web developer, based in Bareilly, India. <b style={{ color: "black" }}>I love everything beautiful, whether it’s in people, music, art or websites I look at or make.</b> I strive to become better and better at what I do and can’t think of doing anything else with my time. <b style={{ color: "black" }}> If you’d like to work on a project with me or just say hello, you can reach out to me on my email, instagram or whatsapp.</b> Do enjoy your stay.</p>
 							</div>
-							<div className="col-sm-3">
-								{/* <div className="rotate">
+							{/* <div className="col-sm-3">
+								<div className="rotate">
 									<a href="#" className="btt" id="btt">back to top</a>
 									<a href="#" className="btt-arrow" id="arro"><b>&#129042;</b></a>
-								</div> */}
-							</div>
+								</div>
+							</div> */}
 						</div>
 					</div>
 				</div>
@@ -43,10 +43,13 @@ const Footer = () => {
 					<ul className="ul">
 						<span className="follow2"><b>Follow</b></span>
 						<li className="li">
-							<a href="https://github.com/danielrepos" target={"_blank"}>Github</a>
+							<a href="https://github.com/shahrozdaniel" target={"_blank"}>Github</a>
 						</li>
 						<li className="li">
-							<a href="#" target={"_blank"}>Instagram</a>
+							<a href="https://www.instagram.com/dammit_daniel1" target={"_blank"}>Instagram</a>
+						</li>
+						<li className="li">
+							<a href="https://www.linkedin.com/in/shahroz-daniel-b8a651216" target={"_blank"}>LinkedIn</a>
 						</li>
 					</ul>
 				</div>
