@@ -195,7 +195,7 @@ const Work = () => {
 						style={{ animationDelay: '0.4s' }}
 					>
 						<div className="stat-item">
-							<div className="stat-number">9+</div>
+							<div className="stat-number">8+</div>
 							<div className="stat-label">Projects Delivered</div>
 						</div>
 						<div className="stat-item">
