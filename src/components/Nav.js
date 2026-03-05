@@ -1,33 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Github, Linkedin } from 'lucide-react';
 
 const Nav = () => {
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => setScrolled(window.scrollY > 50);
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
 	return (
-		<header className="sticky-header">
-			<div className="header-container">
-				<nav className="header-nav">
-					<Link to={"/"} className="header-link">Home</Link>
-					<Link to={"/work"} className="header-link">Work</Link>
-					<Link to={"/aboutme"} className="header-link">About Me</Link>
-					<Link to={"/contactme"} className="header-link">Contact</Link>
-				</nav>
-				<div className="header-social">
-					<a href="https://github.com/shahrozdaniel" target="_blank" rel="noreferrer" title="GitHub">
-						<GitHubIcon />
-					</a>
-					{/* <a href="https://www.instagram.com/dammit_daniel1" target="_blank" rel="noreferrer" title="Instagram">
-						<InstagramIcon />
-					</a> */}
-					<a href="https://www.linkedin.com/in/shahroz-daniel-b8a651216" target="_blank" rel="noreferrer" title="LinkedIn">
-						<LinkedInIcon />
-					</a>
+		<nav className={`site-nav ${scrolled ? 'site-nav--scrolled' : ''}`}>
+			<div className="site-nav__inner">
+				<Link to="/" className="site-nav__logo">SD</Link>
+				<div className="site-nav__links">
+					<Link to="/work" className="site-nav__link">Work</Link>
+					<Link to="/aboutme" className="site-nav__link">About Me</Link>
+					<Link to="/contactme" className="site-nav__link">Contact</Link>
+					<div className="site-nav__social">
+						<a
+							href="https://github.com/shahrozdaniel"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="site-nav__icon"
+							title="GitHub"
+						>
+							<Github size={24} />
+						</a>
+						<a
+							href="https://www.linkedin.com/in/shahroz-daniel-b8a651216"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="site-nav__icon"
+							title="LinkedIn"
+						>
+							<Linkedin size={24} />
+						</a>
+					</div>
 				</div>
 			</div>
-		</header>
+		</nav>
 	);
-}
+};
 
 export default Nav;

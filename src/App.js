@@ -12,31 +12,23 @@ import Particles from './components/Particles';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
-
-	// const userName = "Shahroz Daniel";
-	const [userName, setUsername] = useState("Shahroz Daniel");
-	// const handleUser = (e) => {
-	// 	setUsername(e.target.value)
-	// }
+	const [userName] = useState("Shahroz Daniel");
 
 	return (
 		<HashRouter>
 			<ScrollToTop />
 			<Particles id="tsparticles" />
-			<div className="">
-				{/* <input type="text" onChange={handleUser} /> */}
-				<Nav />
-				<div className="main-body">
-					<Routes>
-						<Route exact path='/' element={<Home user={userName} />} />
-						<Route exact path='/work' element={<Work />} />
-						<Route exact path='/aboutme' element={<AboutUs />} />
-						<Route exact path='/contactme' element={<Contact />} />
-					</Routes>
-					<Footer />
-				</div>
-			</div>
-		</HashRouter >
+			<Nav />
+			<Routes>
+				{/* Home is full-width — no main-body wrapper */}
+				<Route path='/' element={<Home user={userName} />} />
+
+				{/* Inner pages keep the constrained layout */}
+				<Route path='/work' element={<Work />} />
+				<Route path='/aboutme' element={<AboutUs />} />
+				<Route path='/contactme' element={<Contact />} />
+			</Routes>
+		</HashRouter>
 	);
 }
 
