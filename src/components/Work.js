@@ -20,15 +20,15 @@ const Work = () => {
 		return () => window.removeEventListener('mousemove', handleMouseMove);
 	}, []);
 
-	const filters = ['All', 'SaaS Platform', 'CRM', 'E-Commerce', 'Web', 'Marketing'];
+	const filters = ['All', 'SaaS', 'CRM', 'Web'];
 
 	const projects = [
 		// ── Private / Internal platforms ──────────────────────
 		{
 			name: 'Aycent CRM Platform',
-			category: 'CRM',
+			category: ['SaaS', 'CRM'],
 			type: 'private',
-			tech: ['Laravel 8', 'Core PHP', 'React.js', 'MySQL', 'Pusher', 'REST APIs'],
+			tech: ['Laravel', 'Core PHP', 'React.js', 'MySQL', 'Websocket', 'REST APIs'],
 			desc: 'A unified business-management platform covering Chat, Ticketing, CRM, Automated Calling with recording, missed-call reporting, and call forwarding — serving telecom & marketing clients globally.',
 			highlights: [
 				'Multi-tenant SaaS architecture (Laravel 8)',
@@ -41,7 +41,7 @@ const Work = () => {
 		},
 		{
 			name: 'Coodle Daycare Platform',
-			category: 'SaaS Platform',
+			category: 'SaaS',
 			type: 'private',
 			tech: ['Next.js', 'Laravel', 'MySQL'],
 			desc: 'Full-featured daycare and child-care management platform with intuitive UX — managing attendance, billing, parent communication, and staff scheduling.',
@@ -55,10 +55,10 @@ const Work = () => {
 		},
 		{
 			name: 'Ashviro Platform',
-			category: 'SaaS Platform',
+			category: ['SaaS', 'CRM'],
 			type: 'private',
-			tech: ['Laravel', 'React.js', 'MySQL', 'Docker'],
-			desc: 'Enterprise-grade internal business system with sophisticated backend architecture built for international clients through Bellpepper Ptd. Ltd.',
+			tech: ['Laravel', 'Livewire', 'Filament', 'MySQL', 'Websocket'],
+			desc: 'Advanced CRM & Marketing automation platform with sophisticated backend architecture built for international clients through Bellpepper Ptd. Ltd.',
 			highlights: [
 				'End-to-end infrastructure oversight (servers, DB, CI/CD)',
 				'Led cross-functional team across mobile, frontend, backend',
@@ -68,9 +68,9 @@ const Work = () => {
 		},
 		{
 			name: 'VMS — Visitor Management System',
-			category: 'SaaS Platform',
+			category: 'SaaS',
 			type: 'private',
-			tech: ['Laravel', 'MySQL', 'REST API'],
+			tech: ['Laravel', 'Livewire', 'Filament', 'MySQL'],
 			desc: 'Commercial visitor-management software built for enterprise clients, handling visitor registration, authentication, host notifications, and reporting.',
 			highlights: [
 				'Built full backend architecture from scratch',
@@ -81,31 +81,57 @@ const Work = () => {
 		},
 
 		// ── Public / Publicly accessible ─────────────────────
+		// {
+		// 	name: 'Recruitment Platform — BellpepperAI',
+		// 	category: 'SaaS Platform',
+		// 	type: 'private',
+		// 	tech: ['Next.js', 'Node.js', 'MongoDB', 'Docker'],
+		// 	desc: 'AI-assisted recruitment and employment agency platform currently under active development. Full backend architecture designed and delivered by me.',
+		// 	highlights: [
+		// 		'Built for a Singapore-based employment agency',
+		// 		'Candidate tracking, job posting, and workflow automation',
+		// 	],
+		// 	publicUrl: null,
+		// 	publicLabel: null,
+		// },
 		{
-			name: 'Recruitment Platform — BellpepperAI',
-			category: 'SaaS Platform',
+			name: 'Aycent Public Site',
+			category: 'Web',
 			type: 'public',
-			tech: ['Laravel', 'React.js', 'MySQL'],
-			desc: 'AI-assisted recruitment and employment agency platform currently under active development. Full backend architecture designed and delivered by me.',
+			tech: ['HTML', 'CSS', 'JavaScript', 'Core PHP'],
+			desc: 'Professional corporate presence for Aycent platform, optimized for performance and lead generation.',
 			highlights: [
-				'Built for a Singapore-based employment agency',
-				'Candidate tracking, job posting, and workflow automation',
+				'Fast-loading semantic HTML structure',
+				'Tailored content management with Core PHP',
 			],
-			publicUrl: 'https://bellpepperai.com/',
-			publicLabel: 'bellpepperai.com',
+			publicUrl: 'https://in.aycent.com/',
+			publicLabel: 'in.aycent.com',
 		},
 		{
 			name: 'DBSL',
 			category: 'Web',
 			type: 'public',
-			tech: ['WordPress', 'PHP'],
-			desc: 'Professional corporate website for a UK-based client with custom design and tailored content management.',
+			tech: ['HTML', 'CSS', 'JavaScript', 'Core PHP'],
+			desc: 'Corporate website for a UK-based telecommunications provider specializing in VoIP and cellular hardware solutions.',
 			highlights: [
-				'Custom WordPress theme development',
+				'Custom frontend architecture for VOIP services',
 				'SEO-optimised content structure',
 			],
 			publicUrl: 'https://dbsl-online.co.uk/',
 			publicLabel: 'dbsl-online.co.uk',
+		},
+		{
+			name: 'Coodle Website',
+			category: 'Web',
+			type: 'public',
+			tech: ['Next.js'],
+			desc: 'High-performance public landing page for the Coodle Daycare Platform.',
+			highlights: [
+				'Server-side rendering for optimal SEO',
+				'Modern responsive UI design',
+			],
+			publicUrl: 'https://cooddle.com/',
+			publicLabel: 'cooddle.com',
 		},
 		{
 			name: 'Prolitus Technologies',
@@ -122,13 +148,13 @@ const Work = () => {
 		},
 		{
 			name: 'Horsmen',
-			category: 'Marketing',
+			category: 'Web',
 			type: 'public',
 			tech: ['Laravel', 'PHP', 'MySQL'],
-			desc: 'E-commerce and brand site built with a focus on clean design and seamless shopping experience.',
+			desc: 'Professional corporate presence for a private IT consultancy firm, serving as a gateway for enterprise solutions.',
 			highlights: [
-				'Full cart-to-dispatch e-store functionality',
-				'Payment gateway integration',
+				'Modular service-oriented architecture',
+				'High-performance corporate brand identity',
 			],
 			publicUrl: 'https://horsmen.com/',
 			publicLabel: 'horsmen.com',
@@ -138,7 +164,7 @@ const Work = () => {
 	const filtered =
 		activeFilter === 'All'
 			? projects
-			: projects.filter((p) => p.category === activeFilter);
+			: projects.filter((p) => Array.isArray(p.category) ? p.category.includes(activeFilter) : p.category === activeFilter);
 
 	const toggleOpen = (i) => setOpenIndex(openIndex === i ? null : i);
 
@@ -257,7 +283,7 @@ const Work = () => {
 										{/* Left: name + badges */}
 										<div className="wpa-header-left">
 											<span className="wpa-name">{proj.name}</span>
-											<span className="apc-tech wpa-cat">{proj.category}</span>
+											<span className="apc-tech wpa-cat">{Array.isArray(proj.category) ? proj.category.join(' & ') : proj.category}</span>
 											{proj.type === 'private' ? (
 												<span className="wpc-badge wpc-badge--private">
 													<LockOutlinedIcon style={{ fontSize: 11 }} />

@@ -35,22 +35,25 @@ const Home = ({ user }) => {
 
 	const featuredWork = [
 		{
-			title: "E-Commerce Platform",
-			description: "Full-stack solution with React & Node.js",
-			tags: ["React", "Node.js", "MongoDB"],
-			link: "/#/work"
+			title: "Ashviro",
+			description: "Advanced CRM & Marketing automation platform",
+			tags: ["Laravel", "Filament", "Livewire"],
+			link: "/#/work",
+			previewUrl: "https://www.ashviro.com/"
 		},
 		{
-			title: "Analytics Dashboard",
-			description: "Real-time data visualization",
-			tags: ["Vue.js", "D3.js", "Firebase"],
-			link: "/#/work"
+			title: "Coodle",
+			description: "Full-featured daycare management platform",
+			tags: ["Next.js", "Laravel", "MySQL"],
+			link: "/#/work",
+			previewUrl: "https://cooddle.com/"
 		},
 		{
-			title: "Mobile Banking App",
-			description: "Secure fintech solution",
-			tags: ["React Native", "TypeScript"],
-			link: "/#/work"
+			title: "Prolitus Website",
+			description: "Corporate site for an IT services firm",
+			tags: ["WordPress", "PHP", "jQuery"],
+			link: "/#/work",
+			previewUrl: "https://www.prolitus.com/"
 		}
 	];
 
@@ -165,6 +168,11 @@ const Home = ({ user }) => {
 								className="work-card"
 							>
 								<div className="work-card-image">
+									<img
+										src={`https://image.thum.io/get/width/600/crop/800/${project.previewUrl}`}
+										alt={`${project.title} Preview`}
+										className="work-card-preview-img"
+									/>
 									<div className="work-card-image-overlay" />
 								</div>
 								<h3 className="work-card-title">{project.title}</h3>

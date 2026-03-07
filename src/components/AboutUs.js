@@ -5,7 +5,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DownloadIcon from '@mui/icons-material/Download';
-import Resume from '../projectImages/shahroz_resume_25_02_26.pdf';
+import Resume from '../projectImages/shahroz_resume_07_03_26.pdf';
 
 const AboutUs = () => {
 	const [mousePosition, setMousePosition] = useState({ x: -500, y: -500 });

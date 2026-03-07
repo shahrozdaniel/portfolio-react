@@ -7,7 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import SendIcon from '@mui/icons-material/Send';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import ResumePDF from '../projectImages/shahroz_resume_25_02_26.pdf';
+import ResumePDF from '../projectImages/shahroz_resume_07_03_26.pdf';
 
 const Contact = () => {
 	const [mousePosition, setMousePosition] = useState({ x: -500, y: -500 });
